@@ -1,0 +1,29 @@
+import sys
+
+def main():
+    # Read all inputs from standard input stream
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    choice = int(input_data[0])
+    pi = 3.14
+
+    if choice == 1:
+        radius = float(input_data[1])
+        area = pi * radius * radius
+        # Format to 1 decimal place if it has a fractional part, otherwise print as integer
+        print(f"Area of circle={area:.1f}" if area % 1 != 0 else f"Area of circle={int(area)}")
+
+    elif choice == 2:
+        side = float(input_data[1])
+        area = side * side
+        print(f"Area of square={area:.1f}" if area % 1 != 0 else f"Area of square={int(area)}")
+
+    elif choice == 3:
+        radius = float(input_data[1])
+        area = 4.0 * pi * radius * radius
+        print(f"Area of sphere={area:.1f}" if area % 1 != 0 else f"Area of sphere={int(area)}")
+
+if __name__ == '__main__':
+    main()
