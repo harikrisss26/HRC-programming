@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int simpleArraySum(int ar_count, int* ar) {
+    int sum = 0;
+    for (int i = 0; i < ar_count; i++) {
+        sum += ar[i];
+    }
+    return sum;
+}
+
+int main() {
+    int ar_count;
+    
+    if (scanf("%d", &ar_count) != 1) return 1;
+
+    int* ar = (int*)malloc(ar_count * sizeof(int));
+    if (ar == NULL) return 1;
+
+    for (int i = 0; i < ar_count; i++) {
+        if (scanf("%d", &ar[i]) != 1) {
+            free(ar);
+            return 1;
+        }
+    }
+
+    int result = simpleArraySum(ar_count, ar);
+    printf("%d\n", result);
+
+    free(ar);
+
+    return 0;
+}
